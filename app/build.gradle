@@ -37,11 +37,13 @@ android {
 
 dependencies {
     implementation project(':grpc')
-    compileOnly 'com.google.android.things:androidthings:0.6-devpreview'
+    api 'com.android.support:support-annotations:27.0.2'
+    compileOnly 'com.google.android.things:androidthings:0.6.1-devpreview'
 
-    implementation('com.google.auth:google-auth-library-oauth2-http:0.6.0') {
+    implementation('com.google.auth:google-auth-library-oauth2-http:0.9.0') {
         exclude group: 'org.apache.httpcomponents', module: 'httpclient'
     }
 
+    implementation 'com.google.android.things.contrib:driver-button:0.5'
     implementation 'com.google.android.things.contrib:driver-voicehat:0.6'
 }

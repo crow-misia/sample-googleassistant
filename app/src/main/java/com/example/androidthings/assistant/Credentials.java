@@ -33,10 +33,10 @@ class Credentials {
         byte[] bytes = new byte[is.available()];
         is.read(bytes);
         JSONObject json = new JSONObject(new String(bytes, "UTF-8"));
-        return new UserCredentials(
-                json.getString("client_id"),
-                json.getString("client_secret"),
-                json.getString("refresh_token")
-        );
+        return UserCredentials.newBuilder()
+                .setClientId(json.getString("client_id"))
+                .setClientSecret(json.getString("client_secret"))
+                .setRefreshToken(json.getString("refresh_token"))
+                .build();
     }
 }
